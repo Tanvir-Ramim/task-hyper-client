@@ -16,8 +16,8 @@ const Navbar = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-red-500 border-b-[3px] pb-1 border-[transparent] "
-                : "text-white border-b-[3px] pb-1 border-[transparent] hover:border-b-[3px] hover:border-red-500 duration-300"
+                ? "text-pink-300 border-b-[3px] pb-1 border-[transparent] "
+                : "text-white border-b-[3px] pb-1 border-[transparent] hover:border-b-[3px] hover:border-pink-300 duration-300"
             }
             to="/"
           >
@@ -27,12 +27,12 @@ const Navbar = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-red-500 border-b-[3px] pb-1 border-[transparent] "
-                : "text-white border-b-[3px] pb-1 border-[transparent] hover:border-b-[3px] hover:border-red-500 duration-300"
+                ? "text-pink-300 border-b-[3px] pb-1 border-[transparent] "
+                : "text-white border-b-[3px] pb-1 border-[transparent] hover:border-b-[3px] hover:border-pink-400 duration-300"
             }
             to="/dashboard/dash"
           >
-            <li>DASHBOARD</li>
+            <li>TaskBoard</li>
           </NavLink>
         </div>
       );
@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="">
              
               <div className="title flex flex-col">
-                <p className="text-md md:text-3xl text-red-500 font-bold">TaskManage</p>
+                <p className="text-md md:text-3xl text-pink-300 font-bold">TaskHyper</p>
               </div>
            
           </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
             </ul>
            
             <div>
-            <FiLogIn  className="text-3xl cursor-pointer text-red-500"/>
+            <FiLogIn  className="text-3xl cursor-pointer text-pink-300"/>
         </div>
 
 
@@ -61,11 +61,11 @@ const Navbar = () => {
                 <input type="checkbox" />
                 <GiHamburgerMenu
                   onClick={() => setOpen(!open)}
-                  className="swap-off  text-3xl md:text-4xl text-red-500 bg-[transparent] "
+                  className="swap-off  text-3xl md:text-4xl text-pink-300 bg-[transparent] "
                 />
                 <RxCross2
                   onClick={() => setOpen(!open)}
-                  className="swap-on text-3xl md:text-4xl text-red-500 bg-[transparent] "
+                  className="swap-on text-3xl md:text-4xl text-pink-300 bg-[transparent] "
                 />
               </label>
              

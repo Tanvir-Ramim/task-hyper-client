@@ -1,4 +1,5 @@
-import Navber from "../../Components/navbar/Navbar";
+import Banner from "../../Components/banner/Banner";
+import Navbar from "../../Components/navbar/Navbar";
 
 
 
@@ -7,8 +8,8 @@ import Navber from "../../Components/navbar/Navbar";
 const HomePage = () => {
     return (
         <div>
-        <Navber></Navber>
-        
+        <Navbar></Navbar>
+        <Banner></Banner>
         </div>
     );
 };
