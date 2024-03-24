@@ -1,16 +1,39 @@
 
-import {  NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
-import { FiLogIn } from "react-icons/fi";
+
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import {  useContext, useState } from "react";
+
+import Swal from "sweetalert2";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 
 const Navbar = () => {
 
     const [open, setOpen] = useState(false);
-
+    const { logout, user } = useContext(AuthContext);
+    const handleLogOut=()=>{
+      logout()
+      .then(() => {
+        console.log("Logged Out Successfully!");
+      
+        Swal.fire({
+          title: "Logged out!",
+          text: `${
+            user?.displayName ? user.displayName : "User"
+          } logged out successfully!`,
+         
+          confirmButtonText: "Ok!",
+        });
+      })
+      .catch((error) => {
+        console.error(error.message);
+       
+      });
+     }
     const navItems = (
         <div className="lg:flex gap-6 font-semibold text-white">
           <NavLink
@@ -52,7 +75,15 @@ const Navbar = () => {
             </ul>
            
             <div>
+            {user
+          ?
+          <FiLogOut onClick={handleLogOut}  className="text-3xl text-pink-300 cursor-pointer"/>
+          :
+          <Link to="/login">
             <FiLogIn  className="text-3xl cursor-pointer text-pink-300"/>
+          </Link>
+
+          }
         </div>
 
 
