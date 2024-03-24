@@ -1,12 +1,7 @@
 
-
-
 import { Link, useNavigate } from "react-router-dom";
-
 import { useContext, useState } from "react";
-
 import toast from "react-hot-toast";
-
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
@@ -42,10 +37,6 @@ const Register = () => {
               })
             
            }
-     
-          
-
-
     return (
         <>
        
