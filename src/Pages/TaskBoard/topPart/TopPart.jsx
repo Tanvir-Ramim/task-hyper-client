@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import pp from '../../assets/no-pp.jpg'
+
+import pp from '../../../assets/no-pp.jpg'
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const TopPart = () => {
     const {user}=useContext(AuthContext)

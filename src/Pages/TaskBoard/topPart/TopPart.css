@@ -1,0 +1,10 @@
+.ant-picker-panel-footer .ant-picker-footer-extra button {
+    background-color: black; /* Change the background color */
+    color: white; /* Change the text color */
+    border: none; /* Remove border */
+  }
+  
+  /* Hover styles for OK button */
+  .ant-picker-panel-footer .ant-picker-footer-extra button:hover {
+    background-color: #333; /* Darker background on hover */
+  }
