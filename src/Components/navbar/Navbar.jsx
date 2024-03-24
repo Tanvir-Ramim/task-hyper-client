@@ -30,7 +30,7 @@ const Navbar = () => {
                 ? "text-pink-300 border-b-[3px] pb-1 border-[transparent] "
                 : "text-white border-b-[3px] pb-1 border-[transparent] hover:border-b-[3px] hover:border-pink-400 duration-300"
             }
-            to="/dashboard/dash"
+            to="/taskBoard"
           >
             <li>TaskBoard</li>
           </NavLink>
