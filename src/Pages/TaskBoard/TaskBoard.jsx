@@ -2,8 +2,14 @@
 import TopPart from "./TopPart";
 
 
+import { DatePicker } from 'antd';
+import { useState } from 'react';
+import moment from 'moment';
+const { RangePicker } = DatePicker;
+
 const TaskBoard = () => {
-    
+    const [dates, setDates] = useState([])
+    console.log(dates)
     return (
         <div className="bg-gradient-to-r from-pink-200 to-blue-300 min-h-screen">
             <div className="max-w-[1400px] pt-16 m-auto">
@@ -21,7 +27,17 @@ const TaskBoard = () => {
                             <option value="">P1</option>
                             <option value="">P2</option>
                            </select>
+                           <div className="m-5" >
+      < RangePicker
+        onChange={(values) => {
+         
+          setDates(values.map(item=>{
+            return  moment(item).format('YYYY-DD-MM')
+          }))
+        }}
 
+      />
+    </div>
 
                         </div>
                         </div>
