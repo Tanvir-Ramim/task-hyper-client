@@ -1,27 +1,35 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import useAxios from "./useAxios";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
 
 
 
 const useAllTask = () => {
      const myAxios=useAxios()
-   const [taskInfo,setTaskInfo]=useState([])
-     const [fetchLoading , setFetchLoading]=useState(true)
-     
-     useEffect(()=>{
-        myAxios.get('/allTask')
-     .then(res=>{
-         setTaskInfo(res.data)
-         setFetchLoading(false);
-     })
-     .catch(error => {
-       
-        console.error('Error fetching data:', error);
-        setFetchLoading(false);
-      });
-     },[])
+      const {setAllTask,user}=useContext(AuthContext)
+        
+      const allTaskFn=async()=>{
+           const res =await myAxios.get(`/allTask?email=${user?.email}`)
+           setAllTask(res.data)
+           return res
+      }
 
-    return {taskInfo,fetchLoading}
+      const {data, isLoading, isPending, refetch, isError}=useQuery({
+         queryKey : ['allTaskQuery',user],
+         queryFn : allTaskFn
+      })
+
+      if(isLoading || isPending)
+    {
+         return <h1>Loading..........</h1>
+    }
+    if(isError){
+         return <h1>Loading..........</h1>
+    }
+
+   const allTaskHook=data?.data
+    return {allTaskHook,isLoading,isPending,refetch}
 };
 
 export default useAllTask;

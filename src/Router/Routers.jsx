@@ -5,6 +5,7 @@ import HomePage from '../Pages/HomePage/HomePage';
 import TaskBoard from '../Pages/TaskBoard/TaskBoard';
 import Login from '../Pages/login/Login';
 import Register from '../Pages/register/Register';
+import PrivateRoute from './PrivateRoute';
 
 const Routers = createBrowserRouter([
     {
@@ -17,7 +18,9 @@ const Routers = createBrowserRouter([
             },
             {
                 path : 'taskBoard',
-                element : <TaskBoard></TaskBoard>
+                element : <PrivateRoute>
+                    <TaskBoard></TaskBoard>
+                </PrivateRoute>
             },
             {
                 path : 'login',

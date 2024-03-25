@@ -17,6 +17,7 @@ import { auth } from "../Firebase/Firebase.Confiq";
 export const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
   const [allTask,setAllTask]=useState([])
+   console.log(allTask)
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -65,7 +66,9 @@ const AuthProvider = ({children}) => {
     signInUser,
     updateUser,
     logout,
-    setUser
+    setUser,
+    setAllTask,
+    allTask
   };
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

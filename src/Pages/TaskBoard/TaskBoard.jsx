@@ -3,18 +3,43 @@
 
 
 import { DatePicker, Space } from 'antd';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 import TopPart from './topPart/TopPart';
 import AddTask from './addTask/AddTask';
+import { AuthContext } from '../../Provider/AuthProvider';
+import useAllTask from '../../hooks/useAllTask';
+import { all } from 'axios';
 
 
 
 const { RangePicker } = DatePicker;
 const TaskBoard = () => {
+    
   const [dates, setDates] = useState([])
-  console.log(dates)
 
+  // const {allTask}=useContext(AuthContext)
+   
+  //  console.log(allTask)
+  const {allTaskHook,isLoading,isPending,isError}=useAllTask ()
+  console.log(allTaskHook)
+  const [displayData,setDisplayData]=useState([])
+  if(isLoading || isPending)
+  {
+       return <h1>Loading..........</h1>
+  }
+ 
+  if(isError){
+       return <h1>Loading..........</h1>
+  }
+ 
+  
+  useEffect(()=>{
+    setDisplayData(allTaskHook)
+  },[])
+ 
+
+  console.log('allah bachaisa',displayData)
   return (
     <div className="bg-gradient-to-r from-pink-200 to-blue-300 min-h-screen ">
       <div className="max-w-[1400px] pt-16 m-auto">
