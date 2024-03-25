@@ -1,6 +1,13 @@
-
+import toast from "react-hot-toast";
+import useAxios from "../../../hooks/useAxios";
+import { useContext, useRef } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import moment from 'moment'; 
 
 const AddTask = () => {
+    const {user}=useContext(AuthContext)
+    const myAxios=useAxios()
+    const modalRef = useRef(null);
     const handleSubmit=e=>{
           e.preventDefault()
           const title=e.target.title.value
@@ -8,16 +15,32 @@ const AddTask = () => {
           const description=e.target.description.value
           const priority=e.target.priority.value
           const assignee=e.target.assignee.value
+           const userEmail=user?.email
+           const startDate = moment().format('YYYY-MM-DD');
+            const taskStatus= 'Pending'
 
           const submitFormInfo={
-            title,team,description,priority,assignee
+            title,team,description,priority,assignee,
+            userEmail,startDate,taskStatus
           }
           console.log(submitFormInfo)
+            
+          myAxios.post('/addTask',submitFormInfo)
+          .then(res=>{
+            if (modalRef.current) {
+              modalRef.current.close(); 
+          }
+            toast.success('Successfully Add Your Task')
+          })
+          .catch((err)=>{
+            console.log(err)
+         })
+
     }
     return (
         <div>
             <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="bg-blue-600 text-white px-5 py-2 rounded">Add New Task </button>
-            <dialog id="my_modal_3" className="modal">
+            <dialog ref={modalRef}  id="my_modal_3" className="modal">
   <div className="bg-white  rounded-none border">
     <form method="dialog">
      <div className="flex items-center justify-between">
