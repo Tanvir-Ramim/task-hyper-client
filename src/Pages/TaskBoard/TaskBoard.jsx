@@ -9,11 +9,12 @@ import TopPart from './topPart/TopPart';
 import AddTask from './addTask/AddTask';
 
 
+
 const { RangePicker } = DatePicker;
 const TaskBoard = () => {
   const [dates, setDates] = useState([])
   console.log(dates)
- 
+
   return (
     <div className="bg-gradient-to-r from-pink-200 to-blue-300 min-h-screen ">
       <div className="max-w-[1400px] pt-16 m-auto">
@@ -31,14 +32,11 @@ const TaskBoard = () => {
                 </select>
                 <Space className='ml-5 mt-1 md:mt-0' direction="vertical" size={12}>
                   <RangePicker
-                 
                     showTime={{
                       format: 'HH:MM',
                     }}
                     format="YYYY-MM-DD "
-                   
                     onChange={(values) => {
-                      
                       setDates(values.map(item => {
                         return moment(item).format('YYYY-DD-MM')
                       }))
@@ -50,17 +48,37 @@ const TaskBoard = () => {
                         </div>
                       </div>
                     )}
-                  
                   />
                 </Space>
-              
               </div>
-           
             <div>
              <AddTask></AddTask>
             </div>
           </div>
+
+
+     <div>
+      dfdf
+     </div>
+
+
+
+
+
+
+
+
+
+
         </div>
+
+        
+
+
+
+
+
+
       </div>
     </div>
   );
