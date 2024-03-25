@@ -3,27 +3,25 @@
 
 
 import { DatePicker, Space } from 'antd';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import moment from 'moment';
 import TopPart from './topPart/TopPart';
 import AddTask from './addTask/AddTask';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAllTask from '../../hooks/useAllTask';
-import { all } from 'axios';
+import TasksManage from './allTaskManage/TasksManage';
+
+
 
 
 
 const { RangePicker } = DatePicker;
-const TaskBoard = () => {
-    
-  const [dates, setDates] = useState([])
 
-  // const {allTask}=useContext(AuthContext)
+const TaskBoard = () => {
+  const [dates, setDates] = useState([])
+  const {allTask}=useContext(AuthContext)
    
-  //  console.log(allTask)
-  const {allTaskHook,isLoading,isPending,isError}=useAllTask ()
-  console.log(allTaskHook)
-  const [displayData,setDisplayData]=useState([])
+  const {isLoading,isPending,isError}=useAllTask ()
   if(isLoading || isPending)
   {
        return <h1>Loading..........</h1>
@@ -32,14 +30,14 @@ const TaskBoard = () => {
   if(isError){
        return <h1>Loading..........</h1>
   }
- 
-  
-  useEffect(()=>{
-    setDisplayData(allTaskHook)
-  },[])
- 
 
-  console.log('allah bachaisa',displayData)
+  const pending = allTask?.filter((item) => item.taskStatus == "Pending");
+  const inProgress = allTask?.filter((item) => item.taskStatus == "inProgress");
+  const completed = allTask?.filter((item) => item.taskStatus == "Completed");
+  const deployed = allTask?.filter((item) => item.taskStatus == "Deployed");
+  const deferred = allTask?.filter((item) => item.taskStatus == "Deferred");
+
+
   return (
     <div className="bg-gradient-to-r from-pink-200 to-blue-300 min-h-screen ">
       <div className="max-w-[1400px] pt-16 m-auto">
@@ -81,29 +79,37 @@ const TaskBoard = () => {
             </div>
           </div>
 
+     <div className='flex 2xl:justify-between  justify-center  flex-wrap  2xl:gap-0 gap-5' >
+       <div   className=' w-64 h-[525px]  border border-red-500 '>
+        <h1>Pending</h1>
+      <div className=' '>
+      <TasksManage filterData={pending}></TasksManage>
+      </div>
 
-     <div>
-      dfdf
+       </div>
+
+       <div className='w-64 h-[525px]  border border-red-500'>
+        <h1>In Progress</h1>
+       <TasksManage filterData={inProgress}></TasksManage>
+       </div>
+       <div  className='w-64 h-[525px]  border border-red-500'>
+        <h1>Completed</h1>
+       <TasksManage filterData={completed}></TasksManage>
+       </div>
+
+       <div  className='w-64 h-[525px]  border border-red-500'>
+        <h1>Deployed</h1>
+       <TasksManage filterData={deployed}></TasksManage>
+       </div>
+
+       <div  className='w-64 h-[525px]  border border-red-500'>
+        <h1>Deferred</h1>
+       <TasksManage filterData={deferred}></TasksManage>
+       </div>
      </div>
 
 
-
-
-
-
-
-
-
-
         </div>
-
-        
-
-
-
-
-
-
       </div>
     </div>
   );
