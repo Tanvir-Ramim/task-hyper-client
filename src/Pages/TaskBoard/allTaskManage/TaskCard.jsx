@@ -62,13 +62,17 @@ const TaskCard = ({ taskInfo }) => {
                         open && <div ref={dropdownRef} className='absolute  bg-slate-300 rounded px-3 right-6   top-5'>
                            <EditTask taskInfo={taskInfo}></EditTask>
                             <hr />
-
-                            <button className="text-sm font-medium" onClick={() => document.getElementById('my_modal_11').showModal()}>Delete</button>
+                            
+                            {
+                                 taskStatus=='Completed' ||
+                                <button className="text-sm font-medium" onClick={() => document.getElementById('my_modal_11').showModal()}>Delete</button> 
+                            }
+                             
                             <dialog id="my_modal_11" className="modal">
                                 <div className="bg-white  rounded-none border">
                                     <form method="dialog">
                                         <div className="flex items-center justify-between">
-                                            <h1 className="p-1 font-bold">Create A Task</h1>
+                                            <h1 className="p-1 font-bold">Delete Task</h1>
                                             <button className=" rounded-full border btn-xs ">✕</button>
                                         </div>
                                     </form>

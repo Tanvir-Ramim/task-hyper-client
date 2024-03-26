@@ -36,8 +36,6 @@ const EditTask = ({taskInfo}) => {
 
     }
 
-
-
     return (
         <div>
             

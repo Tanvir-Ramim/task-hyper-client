@@ -87,12 +87,7 @@ const TaskBoard = () => {
       <TasksManage filterData={inProgress}></TasksManage>
       </div>
        </div>
-       <div   className=' w-64 h-[588px] bg-white  rounded  '>
-        <h1 className='text-center bg-green-600 p-1 rounded-t text-white'>Completed</h1>
-      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-      <TasksManage filterData={completed}></TasksManage>
-      </div>
-       </div>
+       
        <div   className=' w-64 h-[588px] bg-white  rounded  '>
         <h1 className='text-center bg-purple-900 p-1 rounded-t text-white'>Deployed</h1>
       <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -103,6 +98,12 @@ const TaskBoard = () => {
         <h1 className='text-center bg-rose-400 p-1 rounded-t text-white'>Deferred</h1>
       <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       <TasksManage filterData={deferred}></TasksManage>
+      </div>
+       </div>
+       <div   className=' w-64 h-[588px] bg-white  rounded  '>
+        <h1 className='text-center bg-green-600 p-1 rounded-t text-white'>Completed</h1>
+      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <TasksManage filterData={completed}></TasksManage>
       </div>
        </div>
       
