@@ -33,10 +33,10 @@ const TaskBoard = () => {
 
 
   return (
-    <div className="bg-gradient-to-r from-pink-200 to-blue-300 min-h-screen ">
+    <div className="bg-gradient-to-r  p-2 from-pink-200 to-blue-300 min-h-screen ">
       <div className="max-w-[1400px] pt-16 m-auto">
      <TopPart></TopPart>
-        <div className="border mt-5 p-2">
+        <div className=" shadow-lg rounded-md   hover:shadow-xl focus:shadow-xl border-[2px] mt-5 p-3">
           <div className='flex justify-between' >
               <div>
                 <span className='text-lg font-semibold'>Filter : </span>
@@ -73,33 +73,39 @@ const TaskBoard = () => {
             </div>
           </div>
 
-     <div className='flex 2xl:justify-between p-1   justify-center  flex-wrap  2xl:gap-0  gap-5 ' >
-       <div   className=' w-64 h-[550px]  border border-red-500 '>
-        <h1 className='text-center'>Pending</h1>
-      <div className=' h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+     <div className='flex mt-4 2xl:justify-between p-1 rounded   justify-center  flex-wrap  2xl:gap-0  gap-5 ' >
+
+       <div   className=' w-64 h-[588px] bg-white  rounded  '>
+        <h1 className='text-center bg-gray-400 p-1 rounded-t text-white'>Pending</h1>
+      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       <TasksManage filterData={pending}></TasksManage>
       </div>
-
        </div>
-
-       <div className='w-64 h-[550px]  border border-red-500'>
-        <h1>In Progress</h1>
-       <TasksManage filterData={inProgress}></TasksManage>
+       <div   className=' w-64 h-[588px] bg-white  rounded  '>
+        <h1 className='text-center bg-yellow-600 p-1 rounded-t text-white'>In Progress</h1>
+      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <TasksManage filterData={inProgress}></TasksManage>
+      </div>
        </div>
-       <div  className='w-64 h-[550px]  border border-red-500'>
-        <h1>Completed</h1>
-       <TasksManage filterData={completed}></TasksManage>
+       <div   className=' w-64 h-[588px] bg-white  rounded  '>
+        <h1 className='text-center bg-green-600 p-1 rounded-t text-white'>Completed</h1>
+      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <TasksManage filterData={completed}></TasksManage>
+      </div>
        </div>
-
-       <div  className='w-64 h-[550px]  border border-red-500'>
-        <h1>Deployed</h1>
-       <TasksManage filterData={deployed}></TasksManage>
+       <div   className=' w-64 h-[588px] bg-white  rounded  '>
+        <h1 className='text-center bg-purple-900 p-1 rounded-t text-white'>Deployed</h1>
+      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <TasksManage filterData={deployed}></TasksManage>
+      </div>
        </div>
-
-       <div  className='w-64 h-[550px]  border border-red-500'>
-        <h1>Deferred</h1>
-       <TasksManage filterData={deferred}></TasksManage>
+       <div   className=' w-64 h-[588px] bg-white  rounded  '>
+        <h1 className='text-center bg-rose-400 p-1 rounded-t text-white'>Deferred</h1>
+      <div className='  h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <TasksManage filterData={deferred}></TasksManage>
+      </div>
        </div>
+      
      </div>
 
 

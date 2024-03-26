@@ -3,8 +3,10 @@ import useAxios from "../../../hooks/useAxios";
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import moment from 'moment'; 
+import useAllTask from "../../../hooks/useAllTask";
 
 const AddTask = () => {
+    const {refetch}=useAllTask()
     const {user}=useContext(AuthContext)
     const myAxios=useAxios()
     const modalRef = useRef(null);
@@ -27,10 +29,15 @@ const AddTask = () => {
             
           myAxios.post('/addTask',submitFormInfo)
           .then(res=>{
+           if(res.data.insertedId){
+              e.target.reset()
             if (modalRef.current) {
               modalRef.current.close(); 
           }
             toast.success('Successfully Add Your Task')
+            refetch ()
+           }
+            
           })
           .catch((err)=>{
             console.log(err)
