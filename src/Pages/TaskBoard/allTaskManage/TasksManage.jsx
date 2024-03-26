@@ -5,7 +5,7 @@ const TasksManage = ({filterData}) => {
      console.log(filterData)
 
     return (
-        <div className='p-1'>
+        <div className='p-1 '>
             {
                 filterData?.map((task)=><TaskCard key={task._id} taskInfo={task}></TaskCard>)
             }

@@ -1,7 +1,4 @@
 
-
-
-
 import { DatePicker, Space } from 'antd';
 import { useContext, useState } from 'react';
 import moment from 'moment';
@@ -10,9 +7,6 @@ import AddTask from './addTask/AddTask';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAllTask from '../../hooks/useAllTask';
 import TasksManage from './allTaskManage/TasksManage';
-
-
-
 
 
 const { RangePicker } = DatePicker;
@@ -79,30 +73,30 @@ const TaskBoard = () => {
             </div>
           </div>
 
-     <div className='flex 2xl:justify-between  justify-center  flex-wrap  2xl:gap-0 gap-5' >
-       <div   className=' w-64 h-[525px]  border border-red-500 '>
-        <h1>Pending</h1>
-      <div className=' '>
+     <div className='flex 2xl:justify-between p-1   justify-center  flex-wrap  2xl:gap-0  gap-5 ' >
+       <div   className=' w-64 h-[550px]  border border-red-500 '>
+        <h1 className='text-center'>Pending</h1>
+      <div className=' h-[550px] overflow-auto  ' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       <TasksManage filterData={pending}></TasksManage>
       </div>
 
        </div>
 
-       <div className='w-64 h-[525px]  border border-red-500'>
+       <div className='w-64 h-[550px]  border border-red-500'>
         <h1>In Progress</h1>
        <TasksManage filterData={inProgress}></TasksManage>
        </div>
-       <div  className='w-64 h-[525px]  border border-red-500'>
+       <div  className='w-64 h-[550px]  border border-red-500'>
         <h1>Completed</h1>
        <TasksManage filterData={completed}></TasksManage>
        </div>
 
-       <div  className='w-64 h-[525px]  border border-red-500'>
+       <div  className='w-64 h-[550px]  border border-red-500'>
         <h1>Deployed</h1>
        <TasksManage filterData={deployed}></TasksManage>
        </div>
 
-       <div  className='w-64 h-[525px]  border border-red-500'>
+       <div  className='w-64 h-[550px]  border border-red-500'>
         <h1>Deferred</h1>
        <TasksManage filterData={deferred}></TasksManage>
        </div>
