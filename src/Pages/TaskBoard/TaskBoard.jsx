@@ -12,7 +12,10 @@ import TasksManage from './allTaskManage/TasksManage';
 const { RangePicker } = DatePicker;
 
 const TaskBoard = () => {
+   
+
   const [dates, setDates] = useState([])
+  console.log(dates)
   const {allTask}=useContext(AuthContext)
    
   const {isLoading,isPending,isError}=useAllTask ()
@@ -24,6 +27,15 @@ const TaskBoard = () => {
   if(isError){
        return <h1>Loading..........</h1>
   }
+
+  
+  const handleFilter=(e)=>{
+       e.preventDefault()
+       const name=e.target.name.value 
+       console.log(name)
+  }
+
+
 
   const pending = allTask?.filter((item) => item.taskStatus == "Pending");
   const inProgress = allTask?.filter((item) => item.taskStatus == "inProgress");
@@ -37,11 +49,11 @@ const TaskBoard = () => {
       <div className="max-w-[1400px] pt-16 m-auto">
      <TopPart></TopPart>
         <div className=" shadow-lg rounded-md   hover:shadow-xl focus:shadow-xl border-[2px] mt-5 p-3">
-          <div className='flex justify-between' >
-              <div>
+          <div className='flex lg:justify-between gap-0 md:gap-3 justify-center flex-wrap ' >
+              <div className='order-2  lg:order-1'>
                 <span className='text-lg font-semibold'>Filter : </span>
                 <input placeholder='Assignee Name' className="rounded p-1 " type="text" name="name" />
-                <select className="py-1  rounded md:ml-5 ml-1 " name="priority" id="">
+                <select className="py-1  sm:mt-0 mt-1 ml-14  rounded md:ml-5 customSm:ml-1  " name="priority" id="">
                   <option selected hidden disabled  >Priority</option>
                   <option value="">P0</option>
                   <option value="">P1</option>
@@ -67,8 +79,9 @@ const TaskBoard = () => {
                     )}
                   />
                 </Space>
+                {/* <button className='bg-blue-700 text-white ml-2 px-2 rounded py-[2px]'>Press </button> */}
               </div>
-            <div>
+            <div className='mb-3 order-1'>
              <AddTask></AddTask>
             </div>
           </div>
@@ -106,10 +119,7 @@ const TaskBoard = () => {
       <TasksManage filterData={completed}></TasksManage>
       </div>
        </div>
-      
      </div>
-
-
         </div>
       </div>
     </div>

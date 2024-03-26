@@ -46,7 +46,7 @@ const AddTask = () => {
     }
     return (
         <div>
-            <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="bg-blue-600 text-white px-5 py-2 rounded">Add New Task </button>
+            <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="bg-blue-600 text-white md:px-5 px-4 text-xs md:text-sm py-2 rounded">Add New Task </button>
             <dialog ref={modalRef}  id="my_modal_3" className="modal">
   <div className="bg-white  rounded-none border">
     <form method="dialog">
