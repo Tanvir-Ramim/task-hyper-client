@@ -4,11 +4,12 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import useAxios from '../../../hooks/useAxios';
 import useAllTask from '../../../hooks/useAllTask';
 import toast from 'react-hot-toast';
+import EditTask from './EditTask';
 
 const TaskCard = ({ taskInfo }) => {
     const [open, setOpen] = useState(false)
-    const {refetch}=useAllTask()
-      const myAxios=useAxios()
+    const { refetch } = useAllTask()
+    const myAxios = useAxios()
     const { _id, title, description, priority, assignee, taskStatus } = taskInfo || {}
 
     const dropdownRef = useRef(null);
@@ -27,16 +28,16 @@ const TaskCard = ({ taskInfo }) => {
     }, []);
 
 
-    const handleDelete =async (id) => {
+    const handleDelete = async (id) => {
 
-         console.log(id)
-         const res= await myAxios.delete(`/deleteTask/${id}`)
-          if(res.data.deletedCount>0){
+        console.log(id)
+        const res = await myAxios.delete(`/deleteTask/${id}`)
+        if (res.data.deletedCount > 0) {
             refetch()
             toast.success('Successfully Deleted')
             document.getElementById('my_modal_4').close()
-          }
-         
+        }
+
     }
 
     return (
@@ -59,11 +60,11 @@ const TaskCard = ({ taskInfo }) => {
 
                     {
                         open && <div ref={dropdownRef} className='absolute  bg-slate-300 rounded px-3 right-6   top-5'>
-                            <button className='block text-sm font-medium'>Edit</button>
+                           <EditTask taskInfo={taskInfo}></EditTask>
                             <hr />
-                           
-                            <button className="text-sm font-medium" onClick={() => document.getElementById('my_modal_4').showModal()}>Delete</button>
-                            <dialog id="my_modal_4" className="modal">
+
+                            <button className="text-sm font-medium" onClick={() => document.getElementById('my_modal_11').showModal()}>Delete</button>
+                            <dialog id="my_modal_11" className="modal">
                                 <div className="bg-white  rounded-none border">
                                     <form method="dialog">
                                         <div className="flex items-center justify-between">
@@ -77,7 +78,7 @@ const TaskCard = ({ taskInfo }) => {
                                         <div className='flex mt-2 justify-between items-center'>
                                             <h1 className='mt-1  font-semibold'>{title}</h1>
                                             <div className='space-x-3'>
-                                                <button onClick={()=>handleDelete(_id)} className='text-sm bg-blue-700 text-white px-3 rounded'>Yes</button>
+                                                <button onClick={() => handleDelete(_id)} className='text-sm bg-blue-700 text-white px-3 rounded'>Yes</button>
                                                 <button onClick={() => document.getElementById('my_modal_4').close()} className='text-sm bg-blue-700 text-white px-3 rounded'>No</button>
                                             </div>
 
