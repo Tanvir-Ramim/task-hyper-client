@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
+import useAxios from '../../../hooks/useAxios';
+import useAllTask from '../../../hooks/useAllTask';
+import toast from 'react-hot-toast';
 
 const TaskCard = ({ taskInfo }) => {
     const [open, setOpen] = useState(false)
-     
+    const {refetch}=useAllTask()
+      const myAxios=useAxios()
     const { _id, title, description, priority, assignee, taskStatus } = taskInfo || {}
 
     const dropdownRef = useRef(null);
@@ -26,8 +30,13 @@ const TaskCard = ({ taskInfo }) => {
     const handleDelete =async (id) => {
 
          console.log(id)
+         const res= await myAxios.delete(`/deleteTask/${id}`)
+          if(res.data.deletedCount>0){
+            refetch()
+            toast.success('Successfully Deleted')
+            document.getElementById('my_modal_4').close()
+          }
          
-         document.getElementById('my_modal_4').close()
     }
 
     return (
