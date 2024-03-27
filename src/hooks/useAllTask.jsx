@@ -11,15 +11,16 @@ const useAllTask = () => {
         
       const allTaskFn=async()=>{
            const res =await myAxios.get(`/allTask?email=${user?.email}`)
-           setAllTask(res.data)
            return res
       }
 
-      const {data, isLoading, isPending, refetch, isError}=useQuery({
+       
+    
+      const {data:info, isLoading, isPending, refetch, isError}=useQuery({
          queryKey : ['allTaskQuery',user],
          queryFn : allTaskFn
       })
-
+      
       if(isLoading || isPending)
     {
          return <h1>Loading..........</h1>
@@ -28,7 +29,12 @@ const useAllTask = () => {
          return <h1>Loading..........</h1>
     }
 
-   const allTaskHook=data?.data
+
+    setAllTask(info?.data)
+   
+
+  
+   const allTaskHook=info?.data
     return {allTaskHook,isLoading,isPending,refetch}
 };
 
