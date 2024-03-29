@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../../Components/banner/Banner";
-import Footer from "../../Components/footer/Footer";
+
 import Navbar from "../../Components/navbar/Navbar";
 import TaskHyperUse from "../../Components/useTaskHyper/TaskHyperUse";
+import Footer from "../../Components/footer/Footer";
 
 
 
@@ -17,7 +18,7 @@ const HomePage = () => {
         <Navbar></Navbar>
         <Banner></Banner>
         <TaskHyperUse></TaskHyperUse>
-        <Footer></Footer>
+       <Footer></Footer>
         </div>
     );
 };
