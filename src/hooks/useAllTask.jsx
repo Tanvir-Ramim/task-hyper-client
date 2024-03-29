@@ -3,6 +3,7 @@ import useAxios from "./useAxios";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import ErrorPage from "../Components/erroPage/ErrorPage";
+import Skeleton from "react-loading-skeleton";
 
 
 
@@ -24,7 +25,7 @@ const useAllTask = () => {
       
       if(isLoading || isPending)
     {
-         return <h1>Loading..........</h1>
+         return     <Skeleton count={10} />
     }
     if(isError){
          return <ErrorPage></ErrorPage>

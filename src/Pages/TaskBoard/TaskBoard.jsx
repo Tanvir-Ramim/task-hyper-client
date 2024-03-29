@@ -8,6 +8,7 @@ import TasksManage from './allTaskManage/TasksManage';
 import ErrorPage from '../../Components/erroPage/ErrorPage';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import Skeleton from 'react-loading-skeleton';
 
 
 
@@ -26,7 +27,7 @@ const TaskBoard = () => {
   
   if(isLoading || isPending)
   {
-       return <h1>Loading..........</h1>
+       return     <Skeleton count={10} />
   }
  
   if(isError){
