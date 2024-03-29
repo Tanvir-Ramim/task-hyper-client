@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const [error,setError]=useState(null)
@@ -39,7 +40,9 @@ const Register = () => {
            }
     return (
         <>
-       
+        <Helmet>
+        <title>Task | Register</title>
+      </Helmet>
         <div className="hero min-h-screen md:p-[80px]" >
           <div className="hero-content flex-col lg:flex-row-reverse w-full h-full border-[3px] border-gray-300 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
             <div className="text-center lg:text-left">

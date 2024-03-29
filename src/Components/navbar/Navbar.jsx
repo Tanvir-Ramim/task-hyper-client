@@ -18,7 +18,7 @@ const Navbar = () => {
     const handleLogOut=()=>{
       logout()
       .then(() => {
-        console.log("Logged Out Successfully!");
+       
       
         Swal.fire({
           title: "Logged out!",
@@ -64,7 +64,7 @@ const Navbar = () => {
         <div className="">
              
               <div className="title flex flex-col">
-                <p className="text-md md:text-3xl text-pink-300 font-bold">TaskHyper</p>
+                <p className="text-md md:text-3xl text-pink-300 font-bold">TaskTracker</p>
               </div>
            
           </div>

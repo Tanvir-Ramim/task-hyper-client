@@ -14,7 +14,7 @@ const TaskHyperUse = () => {
     return (
         <div  className="md:px-[90px] py-5 "> 
              <div className="py-16 bg-white" >
-        <h1 className="text-2xl md:text-3xl uppercase text-center font-bold">What type of people are <br /> using Task<span className="text-pink-400">Hyper</span> ?</h1>
+        <h1 className="text-2xl md:text-3xl uppercase text-center font-bold">What type of people are <br /> using Task<span className="text-pink-400">Tracker</span> ?</h1>
         <div className="mt-10 " data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div className="max-w-7xl mx-auto font-[sans-serif] text-[#333]">
                 <div className="grid lg:grid-cols-3 px-5 md:grid-cols-2 gap-10 lg:gap-16 md:gap-12 ">

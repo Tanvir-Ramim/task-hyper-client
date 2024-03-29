@@ -60,31 +60,31 @@ const AddTask = () => {
         <form onSubmit={handleSubmit} action="">
         <div>
         <h1>Title :</h1>
-         <input name="title"  className="border w-full " type="text" />
+         <input name="title"  className="border w-full " type="text" required/>
         </div>
          
         <div className="mt-2">
        <h1>Description :</h1>
-       <textarea   name="description" id="" cols="32" rows="4"></textarea>
+       <textarea   name="description" id="" cols="32" rows="4" required></textarea>
         </div>
         <div className="mt-2">
         <h1>Team :</h1>
-         <input name="team"  className="border w-full " type="text" />
+         <input name="team"  className="border w-full " type="text" required />
         </div>
         <div className="mt-2">
         <h1>Assignee :</h1>
-         <input name="assignee"  className="border w-full " type="text" />
+         <input name="assignee"  className="border w-full " type="text" required/>
         </div>
         <div className="mt-3">
             <span >Priority :</span>
-        <select className="ml-2 rounded " name="priority" id="">
+        <select className="ml-2 rounded " name="priority" id="" required>
                  
                   <option value="P0">P0</option>
                   <option value="P1">P1</option>
                   <option value="P2">P2</option>
                 </select>
         </div>
-        <div className="flex justify-center mt-5"><input className="bg-blue-500 text-white p- px-9 rounded " type="submit" value="Submit" /></div>
+        <div className="flex justify-center mt-5"><input className="bg-blue-500 text-white cursor-pointer px-9 rounded " type="submit" value="Submit" /></div>
         </form>
       </div>
   </div>

@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="bg-gray-600">
         <footer data-aos="fade-down" className="footer p-8 footer-center text-white">
           <aside>
-            <p className="font-bold text-3xl text-pink-400">TaskHyper</p>
+            <p className="font-bold text-3xl text-pink-400">TaskTracker</p>
             <p className="font-bold">Providing reliable tech since 1995</p>
             <p>Copyright © 2023 - All right reserved</p>
           </aside>

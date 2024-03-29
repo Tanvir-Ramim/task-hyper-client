@@ -27,6 +27,7 @@ const EditTask = ({taskInfo}) => {
            if(res.data.modifiedCount>0){
               refetch()
               toast.success('Successfully Update')
+              document.getElementById('my_modal_44').close(); 
            }
        })
        .catch((err)=>{
@@ -91,7 +92,7 @@ const EditTask = ({taskInfo}) => {
            </div>
 
         </div>
-        <div className="flex justify-center mt-5"><input className="bg-blue-500 text-white p- px-9 rounded " type="submit" value="Update" /></div>
+        <div className="flex justify-center mt-5  "><input className="bg-blue-500 text-white  px-9 rounded  cursor-pointer" type="submit" value="Update" /></div>
         </form>
       </div>
   </div>

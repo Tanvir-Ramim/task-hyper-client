@@ -2,6 +2,7 @@ import { useContext } from "react";
 import useAxios from "./useAxios";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
+import ErrorPage from "../Components/erroPage/ErrorPage";
 
 
 
@@ -26,7 +27,7 @@ const useAllTask = () => {
          return <h1>Loading..........</h1>
     }
     if(isError){
-         return <h1>Loading..........</h1>
+         return <ErrorPage></ErrorPage>
     }
 
 

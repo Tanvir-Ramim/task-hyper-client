@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const{signInUser}=useContext(AuthContext)
@@ -29,7 +30,9 @@ const Login = () => {
 
     return (
         <div>
-        
+        <Helmet>
+        <title>Task | LogIn</title>
+      </Helmet>
 <div className="hero min-h-screen md:p-[80px] ">
   <div className="hero-content flex-col lg:flex-row w-full h-full border-[3px] border-gray-300 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
     <div className="text-center lg:text-left">

@@ -4,7 +4,10 @@ import AddTask from './addTask/AddTask';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAllTask from '../../hooks/useAllTask';
 import TasksManage from './allTaskManage/TasksManage';
-import './TaslBoard.css'
+
+import ErrorPage from '../../Components/erroPage/ErrorPage';
+import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -27,7 +30,7 @@ const TaskBoard = () => {
   }
  
   if(isError){
-       return <h1>Loading..........</h1>
+       return <ErrorPage></ErrorPage>
   }
   
     const handleReset=()=>{
@@ -44,16 +47,22 @@ const TaskBoard = () => {
      const startDate=startDateRef.current.value 
      const endDate=endDateRef.current.value 
     
-    console.log(startDate)
-    console.log(endDate)
   
     
   
     if(priority =='None' || priority=='Priority'){
         priority=''
     }
-    if(assignee=='' && priority==''  &&  startDate =='' ||     endDate==''){
+    if(assignee=='' && priority==''  &&  startDate =='' &&    endDate==''){
        return setDisplay(allTask)
+    }
+    if(startDate && !endDate){
+      toast.error('End Date Is Required')
+      return
+    }
+    if(endDate && !startDate){
+      toast.error('End Date Is Required')
+      return
     }
   
     const filteredTasks = allTask.filter(task => {
@@ -80,6 +89,9 @@ const TaskBoard = () => {
  
   return (
     <div className="bg-gradient-to-r  p-2 from-pink-200 to-blue-300 min-h-screen ">
+      <Helmet>
+        <title>Task Board</title>
+      </Helmet>
       <div className="max-w-[1400px] pt-16 m-auto">
      <TopPart></TopPart>
         <div className=" shadow-lg rounded-md   hover:shadow-xl focus:shadow-xl border-[2px] mt-5 p-3">
