@@ -43,24 +43,26 @@ const TaskBoard = () => {
      priority=priorityRef.current.value 
      const startDate=startDateRef.current.value 
      const endDate=endDateRef.current.value 
-    console.log(startDate,endDate)
+    
+    console.log(startDate)
+    console.log(endDate)
   
-   
+    
   
     if(priority =='None' || priority=='Priority'){
         priority=''
     }
-    if(assignee=='' && priority=='' ){
+    if(assignee=='' && priority==''  &&  startDate =='' ||     endDate==''){
        return setDisplay(allTask)
     }
   
     const filteredTasks = allTask.filter(task => {
       return (
+  
         ( ! assignee || task.assignee === assignee) &&
-        ( ! priority || task.priority === priority)
-        // &&
-        // ( !startDate || task.startDate == startDate) &&
-        // ( !endDate|| task.endDate == endDate)
+        ( ! priority || task.priority === priority) &&
+        ( ! startDate  || task.startDate == startDate) && 
+        ( !endDate || task.endDate == endDate)
       );
     });
       console.log(filteredTasks)
