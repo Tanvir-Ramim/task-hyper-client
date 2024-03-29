@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import Aos from "aos";
-const Footer = () => {
+const FooterAdd = () => {
   useEffect(() => {
     Aos.init({
       duration: 1500,
@@ -43,4 +43,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterAdd;

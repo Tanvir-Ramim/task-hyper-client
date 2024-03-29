@@ -3,7 +3,8 @@ import Banner from "../../Components/banner/Banner";
 
 import Navbar from "../../Components/navbar/Navbar";
 import TaskHyperUse from "../../Components/useTaskHyper/TaskHyperUse";
-import Footer from "../../Components/footer/Footer";
+import FooterAdd from "../../Components/footer/FooterAdd";
+
 
 
 
@@ -18,7 +19,7 @@ const HomePage = () => {
         <Navbar></Navbar>
         <Banner></Banner>
         <TaskHyperUse></TaskHyperUse>
-       <Footer></Footer>
+      <FooterAdd></FooterAdd>
         </div>
     );
 };
